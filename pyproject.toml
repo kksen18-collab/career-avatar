@@ -1,0 +1,16 @@
+[project]
+name = "career-avatar"
+version = "0.1.0"
+description = "A career avatar made using AI to impress recruiters and land your dream job."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.12.5",
+    "openai>=2.26.0",
+    "python-dotenv>=1.2.2",
+    "pydantic-settings==2.13.1",
+    "requests==2.32.5",
+    "pypdf==6.7.5",
+    "gradio==6.9.0",
+    "pathlib==1.0.1"
+]
