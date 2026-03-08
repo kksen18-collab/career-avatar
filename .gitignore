@@ -11,4 +11,4 @@ wheels/
 
 # Env Files
 .env
-*/.env
+career_avatar/.env
