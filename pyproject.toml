@@ -14,3 +14,8 @@ dependencies = [
     "gradio==6.9.0",
     "pathlib==1.0.1"
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+]
