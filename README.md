@@ -22,6 +22,7 @@ Career Avatar is built using **bare-bones OpenAI API calls** with **custom tool 
 
 **Core Technology Choices:**
 - **Direct OpenAI API**: Raw `chat.completions.create()` calls with function calling support
+- **Structured Output Parsing**: Uses `client.responses.parse()` with Pydantic models for deterministic validation
 - **Custom Tool Definitions**: Tools defined as JSON schemas from scratch, not auto-generated
 - **Manual Orchestration**: Explicit control over request/response loops and tool execution
 - **Function Calling**: Native OpenAI function calling mechanism for AI-invoked tool integration
