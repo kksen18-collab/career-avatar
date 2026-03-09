@@ -6,9 +6,16 @@ dist/
 wheels/
 *.egg-info
 
+# vscode files
+.vscode
+
 # Virtual environments
 .venv
 
 # Env Files
 .env
 career_avatar/.env
+
+# Data Files
+career_avatar/data/linkedin.pdf
+career_avatar/data/summary.txt

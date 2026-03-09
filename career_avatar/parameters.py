@@ -1,4 +1,4 @@
-from pydantic import field_validator
+from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings
 from pathlib import Path
 
@@ -23,3 +23,8 @@ class CareerAvatarSettings(BaseSettings):
         if not v.startswith("sk-"):
             raise ValueError("invalid openai api key")
         return v
+
+
+class Evaluation(BaseModel):
+    is_acceptable: bool
+    feedback: str

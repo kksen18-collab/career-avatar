@@ -2,10 +2,15 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class Loader:
     def load_pdf(self, path: Path) -> str:
         reader = PdfReader(path)
+        logger.debug("PDF content %s", reader)
         return "".join(
             page.extract_text() for page in reader.pages if page.extract_text()
         )

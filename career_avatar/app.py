@@ -5,9 +5,11 @@ from career_avatar.client.pushover import PushoverClient
 from career_avatar.tools.tools import Tools
 from career_avatar.loader import Loader
 from career_avatar.avatar import Avatar
+from career_avatar.logger import setup_logging
 
 
 def main():
+    setup_logging()
     settings = CareerAvatarSettings()  # type: ignore
 
     openai_client = OpenAIClient(api_key=settings.openai_api_key)

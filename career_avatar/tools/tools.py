@@ -3,6 +3,10 @@ from career_avatar.tools.record_unknown_question import record_unknown_question_
 from career_avatar.tools.record_user_details import record_user_details_json
 from career_avatar.client.pushover import PushoverClient
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class Tools:
     def __init__(self, *, pushover_client: PushoverClient):
@@ -14,6 +18,7 @@ class Tools:
             {"type": "function", "function": record_user_details_json},
             {"type": "function", "function": record_unknown_question_json},
         ]
+        logger.debug("Tool definition: %s", tools)
         return tools
 
     def _record_user_details(
@@ -37,7 +42,7 @@ class Tools:
         for tool_call in tool_calls:
             tool_name = tool_call.function.name
             arguments = json.loads(tool_call.function.arguments)
-            print(f"Tool called: {tool_name}", flush=True)
+            logger.info("Tool called %s", tool_name)
 
             if tool_name == "record_user_details":
                 result = self._record_user_details(**arguments)
@@ -53,4 +58,5 @@ class Tools:
                     "tool_call_id": tool_call.id,
                 }
             )
+            logger.debug("Tool result: %s", result)
         return results
